@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   css: [
       '~/assets/css/tailwind.css',
       '~/assets/css/transition.css',
+      '~/assets/css/fonts.css',
   ],
   postcss: {
     plugins: {
