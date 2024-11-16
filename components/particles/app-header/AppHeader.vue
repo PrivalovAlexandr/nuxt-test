@@ -4,15 +4,28 @@
             <NuxtLink to="/" title="main page" class="hover:scale-110 text-neutral-100 hover:text-gold-400 transition-all duration-300">
                 <AtomLogo class="size-16"/>
             </NuxtLink>
-            <form action="/" autocomplete="off" class="ml-20 w-full">
-                <AtomField icon="search" name="q" icon-position="right" button-type="submit" label="Search"/>
-            </form>
+            <div class="ml-20 w-full">
+                <AtomField icon="search" v-model="searchValue" name="q" :on-icon-click="handleSubmit" button-type="button" icon-position="right" label="Search"/>
+            </div>
         </div>
     </header>
 </template>
 
 <script setup lang="ts">
-
 import AtomLogo from "~/components/atom/atom-logo/AtomLogo.vue";
 import AtomField from "~/components/atom/atom-field/AtomField.vue";
+import type {RouteLocation, Router} from "#vue-router";
+import {useRoute} from "#app";
+
+const route: RouteLocation = useRoute()
+const router: Router = useRouter()
+const searchValue: Ref<string> = ref(String(route.query?.q || ''))
+
+function handleSubmit(): void {
+    router.replace({
+        query: {
+            q: searchValue.value,
+        },
+    })
+}
 </script>

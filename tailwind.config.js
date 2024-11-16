@@ -86,6 +86,16 @@ export default {
       },
       backgroundImage: {
         space: 'url(/assets/images/space-background.jpg)'
+      },
+      keyframes: {
+        loader: {
+          '100%': { transform: 'rotate(1turn)' },
+        },
+      },
+      animation: {
+        loaderMain: '1s loader infinite linear',
+        loaderInternal: '2s loader infinite linear',
+        loaderExternal: '4s loader infinite linear',
       }
     },
   },

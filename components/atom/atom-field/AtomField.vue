@@ -28,7 +28,7 @@
             v-if="icon && animateIcon"
             :type="buttonType"
             :class="[
-                hasClickFunction ? 'group-hover:text-gold-300 group-has-[:focus]:text-gold-500' : 'cursor-text',
+                hasClickFunction ? 'group-hover:text-gold-300' : 'cursor-text',
                 iconPosition === 'left' ? 'left-0 justify-end' : 'right-0',
             ]"
             class="absolute top-1/2 flex text-gold-50 h-12 w-10 -translate-y-1/2 items-center rounded-20 outline-none outline-transparent transition-all duration-300"
@@ -111,5 +111,5 @@ const handleIconClick: void = debounce(() => {
     if (hasClickFunction.value && props.onIconClick) {
         props.onIconClick()
     }
-})``
+}, 500)
 </script>
